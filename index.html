@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShop | Get Gadgets, Computers, Latest Technology and Reviews</title>
+    <link rel="stylesheet" href="owl.carousel.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="topNote">
+                <div>01-000-0000 | info@techshop.com</div>
+                <div>Store Location | Trading Partner</div>
+            </div>
+            <div class="main">
+                <div class="logo"></div>
+                <div><form>
+                    <input type="text">
+                    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+                </div>
+                <div class="shop">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#top">Home</a></li>
+                    <li id="productsNav"><a href="#products">Products <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul class="subnav">
+                            <li>Smartphones</li>
+                            <li>Laptops</li>
+                            <li>Smart TVs</li>
+                        </ul>
+                    </li>
+                    <li id="reviewsNav"><a href="#">Reviews <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul class="subnav">
+                    <li>reviews 1</li>
+                    <li>reviews 2</li>
+                    <li>reviews 3</li>
+                    <li>reviews 4</li>
+                    </ul></li>
+                    <li id="upcomingNav"><a href="#">Upcoming <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul class="subnav">
+                        <li><h3>Cyberpunk 2077</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa reprehenderit possimus libero.</p>
+                            <img src="images/upcoming_1.png" alt=""></li>
+                    </ul></li>
+                    <li><a href="#">Tech News</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="showcase">
+<!-- SHOWCASE OWL CAROUSEL -->
+<div class="owl-carousel owl-theme">
+    <div class="item" data-hash="zero"><img src="images/hero1.png" alt="hero1"></div>
+    <div class="item" data-hash="one"><img src="images/hero2.png" alt="hero2"></div>
+    <div class="item" data-hash="two"><img src="images/hero3.png" alt="hero3"></div>
+    <div class="item" data-hash="three"><img src="images/hero4.png" alt="hero4"></div>
+</div>
+<!-- HEROSLIDER NAV -->
+<div class="heroslidernav">
+<a class="heroslide" href="#zero"><img src="images/0.png" alt=""></a>
+<a class="heroslide" href="#one"><img src="images/1.png" alt=""></a>
+<a class="heroslide" href="#two"><img src="images/2.png" alt=""></a>
+<a class="heroslide" href="#three"><img src="images/3.png" alt=""></a>
+    </div>
+</div>
+<!-- END SHOW CASE OWL CAROUSEL -->
+<!-- START MONTHLY SECTION -->
+<section>
+    <div class="container">
+        <hr>
+    <h3>THIS MONTH'S NEW</h3>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit tenetur accusantium consectetur vitae ducimus? Eveniet quis neque, natus reprehenderit omnis amet accusantium optio, deserunt doloremque sint exercitationem perspiciatis dolores molestiae.</p>
+    </div>
+</section>
+<!-- JAVASCRIPT -->
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="owl.carousel.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    autoplay:true,
+    autoplayTimeout:10000,
+    autoplayHoverPause:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+})
+    </script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+        items:4,
+        loop:false,
+        center:true,
+        margin:10,
+        URLhashListener:true,
+        autoplayHoverPause:true,
+        startPosition: 'URLHash'
+    });
+//     $('.heroslide').on('click', function() {
+//     $('.owl-carousel').slick('slickPause');
+// });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $(document).on('click', '.heroslide', function() {
+            $(this).addClass('heroslideactive').siblings().removeClass('heroslideactive')
+        })
+    </script>
+    <script>
+        const navigation = document.querySelector('nav');
+        const productNav = document.querySelector('#productsNav');
+        const reviewsNav = document.querySelector("#reviewsNav");
+        const upcomingNav = document.querySelector("#upcomingNav");
+        /*Dropdown Subnav Event Delegation*/
+        // ProductNav
+        productNav.addEventListener('click', function(e){
+            if (e.target.children[0].className === "fa fa-angle-down") {
+                console.log("selected");
+                productNav.classList.add("dropdownclick");
+                e.target.children[0].className="fa fa-angle-up";
+            } else if (e.target.children[0].className!== "fa fa-angle-down") {
+                productNav.classList.remove("dropdownclick");
+                e.target.children[0].className="fa fa-angle-down";
+            }
+        });
+        productNav.addEventListener('mouseleave', function(f){
+            productNav.classList.remove("dropdownclick");
+            console.log(f.target.children[0].children);
+            f.target.children[0].children[0].className="fa fa-angle-down";
+
+        });
+        // ReviewsNav
+        reviewsNav.addEventListener('click', function(g){
+            if (g.target.children[0].className === "fa fa-angle-down") {
+                reviewsNav.classList.add("dropdownclick");
+                g.target.children[0].className="fa fa-angle-up";
+            } else if (g.target.children[0].className!== "fa fa-angle-down") {
+                reviewsNav.classList.remove("dropdownclick");
+                g.target.children[0].className="fa fa-angle-down";
+            }
+        });
+        reviewsNav.addEventListener('mouseleave', function(h){
+            reviewsNav.classList.remove("dropdownclick");
+            h.target.children[0].children[0].className="fa fa-angle-down";
+        });
+        // UpcomingNav
+        upcomingNav.addEventListener('click', function(i){
+            if (i.target.children[0].className === "fa fa-angle-down") {
+                upcomingNav.classList.add("dropdownclick");
+                i.target.children[0].className="fa fa-angle-up";
+            } else if (i.target.children[0].className!== "fa fa-angle-down") {
+                upcomingNav.classList.remove("dropdownclick");
+                i.target.children[0].className="fa fa-angle-down";
+            }
+        });
+        upcomingNav.addEventListener('mouseleave', function(j){
+            upcomingNav.classList.remove("dropdownclick");
+            j.target.children[0].children[0].className="fa fa-angle-down";
+        });
+    </script>
+    
+<!-- END JAVSCRIPT -->
+</body>
+</html>
