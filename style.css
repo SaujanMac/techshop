@@ -176,6 +176,8 @@ header nav ul li i.fa-angle-up {
     width: 100vw;
     position: relative;
 }
+/* SHOWCASE ANIMATION ON SCROLL */
+
 /*showcase owl carousel*/
 .showcase .owl-carousel .item {
     height: 500px;
@@ -274,7 +276,7 @@ section {
   padding: 10px;
   position: relative;
 }
-section h3 {
+section .heading {
     background-color: #000;
     display: inline-block;
     padding: 10px;
@@ -291,6 +293,7 @@ section h3 {
 section p {
     padding: 30px 10px;
 }
+
 section .gridLayout {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -300,14 +303,46 @@ section .gridLayout {
     margin-top: 100px;
     max-width: 100%;
 }
-section .gridBox {
+section .gridLayout .gridBox {
+    font-family: "Montserrat";
     width: 350px;
-    height: 430px;
-    background-color: #181818;
+    height: 450px;
     border: solid 1px #707070;
+    /* overflow: hidden; */
+    cursor: pointer;
+    position: relative;
 }
-section .gridBox img {
+section .gridLayout .gridBox .op {
     width: 100%;
     height: 100%;
-    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease-in-out;
+}
+section .gridLayout .gridBox .laptop {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000 url("images/laptop_cat.jpg") no-repeat center/cover;
+    background-size: 100%;
+    transition: all 0.5s ease-in-out;
+}
+section .gridLayout .gridBox .laptop:hover {
+    background-size: 105%;
+    transition: all 0.5s ease-in-out;
+}
+section .gridLayout .gridBox .laptop:hover .op {
+    background-color: rgba(0, 0, 0, 0.5);;
+    transition: all 0.5s ease-in-out;
+}
+section .gridLayout .gridBox h3 {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #ccc;
+    opacity: 0.8;
+    transform: translate(-50%,-50%);
+
 }

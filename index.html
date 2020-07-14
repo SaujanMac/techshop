@@ -6,6 +6,7 @@
     <title>TechShop | Get Gadgets, Computers, Latest Technology and Reviews</title>
     <link rel="stylesheet" href="owl.carousel.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -30,21 +31,21 @@
             <nav>
                 <ul>
                     <li><a href="#top">Home</a></li>
-                    <li id="productsNav"><a href="#products">Products <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <li id="productsNav" class="notdropped"><a href="#">Products <i class="fa fa-angle-down" aria-hidden="false"></i></a>
                         <ul class="subnav">
                             <li>Smartphones</li>
                             <li>Laptops</li>
                             <li>Smart TVs</li>
                         </ul>
                     </li>
-                    <li id="reviewsNav"><a href="#">Reviews <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <li id="reviewsNav" class="notdropped"><a href="#">Reviews <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                     <ul class="subnav">
                     <li>reviews 1</li>
                     <li>reviews 2</li>
                     <li>reviews 3</li>
                     <li>reviews 4</li>
                     </ul></li>
-                    <li id="upcomingNav"><a href="#">Upcoming <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <li id="upcomingNav" class="notdropped"><a href="#">Upcoming <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                     <ul class="subnav">
                         <li><h3>Cyberpunk 2077</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa reprehenderit possimus libero.</p>
@@ -73,13 +74,20 @@
 </div>
 <!-- END SHOW CASE OWL CAROUSEL -->
 <!-- START MONTHLY SECTION -->
-<section>
+<section data-aos="fade-up"
+data-aos-duration="1000">
     <div class="container">
         <hr>
-    <h3>DEVICE CATEGORIES</h3>
+    <h3 class="heading">DEVICE CATEGORIES</h3>
 <div class="gridLayout">
-    <div class="gridBox" style="background: url('images/laptop_cat.jpg') no-repeat top/cover;"></div>
-    <div class="gridBox"><img src="https://unsplash.com/photos/W2BI02QOncg/640x852" alt=""></div>
+    <div class="gridBox">
+        <div class="laptop">
+            <div class="op">
+                <h3>Laptops</h3>
+            </div>
+        </div>
+    </div>
+    <div class="gridBox"></div>
     <div class="gridBox"></div>
     <div class="gridBox"></div>
     <div class="gridBox"></div>
@@ -138,52 +146,65 @@
         const upcomingNav = document.querySelector("#upcomingNav");
         /*Dropdown Subnav Event Delegation*/
         // ProductNav
-        productNav.addEventListener('click', function(e){
-            if (e.target.children[0].className === "fa fa-angle-down") {
-                console.log("selected");
-                productNav.classList.add("dropdownclick");
-                e.target.children[0].className="fa fa-angle-up";
-            } else if (e.target.children[0].className!== "fa fa-angle-down") {
-                productNav.classList.remove("dropdownclick");
-                e.target.children[0].className="fa fa-angle-down";
+        productNav.addEventListener('click', function(e) {
+            // console.log(productNav.children[0].className);
+            // console.log(productNav.children[0].children[0].className);
+            if (productNav.className === 'notdropped') {
+                productNav.className = 'dropdownclick';
+                productNav.children[0].children[0].className="fa fa-angle-up";
+            }
+            else if (productNav.className === 'dropdownclick') {
+                productNav.className = 'notdropped';
+                productNav.children[0].children[0].className="fa fa-angle-down";
             }
         });
         productNav.addEventListener('mouseleave', function(f){
-            productNav.classList.remove("dropdownclick");
-            console.log(f.target.children[0].children);
-            f.target.children[0].children[0].className="fa fa-angle-down";
+            productNav.className = "notdropped";
+            productNav.children[0].children[0].className="fa fa-angle-down";
 
         });
         // ReviewsNav
-        reviewsNav.addEventListener('click', function(g){
-            if (g.target.children[0].className === "fa fa-angle-down") {
-                reviewsNav.classList.add("dropdownclick");
-                g.target.children[0].className="fa fa-angle-up";
-            } else if (g.target.children[0].className!== "fa fa-angle-down") {
-                reviewsNav.classList.remove("dropdownclick");
-                g.target.children[0].className="fa fa-angle-down";
+        reviewsNav.addEventListener('click', function(e) {
+            // console.log(productNav.children[0].className);
+            // console.log(productNav.children[0].children[0].className);
+            if (reviewsNav.className === 'notdropped') {
+                reviewsNav.className = 'dropdownclick';
+                reviewsNav.children[0].children[0].className="fa fa-angle-up";
+            }
+            else if (reviewsNav.className === 'dropdownclick') {
+                reviewsNav.className = 'notdropped';
+                reviewsNav.children[0].children[0].className="fa fa-angle-down";
             }
         });
-        reviewsNav.addEventListener('mouseleave', function(h){
-            reviewsNav.classList.remove("dropdownclick");
-            h.target.children[0].children[0].className="fa fa-angle-down";
+        reviewsNav.addEventListener('mouseleave', function(f){
+            reviewsNav.className = "notdropped";
+            reviewsNav.children[0].children[0].className="fa fa-angle-down";
+
         });
         // UpcomingNav
-        upcomingNav.addEventListener('click', function(i){
-            if (i.target.children[0].className === "fa fa-angle-down") {
-                upcomingNav.classList.add("dropdownclick");
-                i.target.children[0].className="fa fa-angle-up";
-            } else if (i.target.children[0].className!== "fa fa-angle-down") {
-                upcomingNav.classList.remove("dropdownclick");
-                i.target.children[0].className="fa fa-angle-down";
+        upcomingNav.addEventListener('click', function(e) {
+            // console.log(productNav.children[0].className);
+            // console.log(productNav.children[0].children[0].className);
+            if (upcomingNav.className === 'notdropped') {
+                upcomingNav.className = 'dropdownclick';
+                upcomingNav.children[0].children[0].className="fa fa-angle-up";
+            }
+            else if (upcomingNav.className === 'dropdownclick') {
+                upcomingNav.className = 'notdropped';
+                upcomingNav.children[0].children[0].className="fa fa-angle-down";
             }
         });
-        upcomingNav.addEventListener('mouseleave', function(j){
-            upcomingNav.classList.remove("dropdownclick");
-            j.target.children[0].children[0].className="fa fa-angle-down";
+        upcomingNav.addEventListener('mouseleave', function(f){
+            upcomingNav.className = "notdropped";
+            upcomingNav.children[0].children[0].className="fa fa-angle-down";
+
         });
     </script>
-    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        
+      </script>
 <!-- END JAVSCRIPT -->
 </body>
 </html>
