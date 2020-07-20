@@ -12,49 +12,71 @@
 <body>
     <header>
         <div class="container">
-            <div class="topNote">
-                <div>01-000-0000 | info@techshop.com</div>
-                <div>Store Location | Trading Partner</div>
-            </div>
             <div class="main">
                 <div class="logo"></div>
                 <div><form>
-                    <input type="text">
+                    <input type="text" placeholder="Search products here...">
                     <button><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
                 </div>
                 <div class="shop">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <i class="fa fa-user" aria-hidden="true"></i><span style="font-size: 1rem;">Login</span>
+                    <i class="fa fa-bars shownav" aria-hidden="true"></i>
                 </div>
             </div>
-            <nav>
+        </div>
+            <nav class="activeNav">
                 <ul>
-                    <li><a href="#top">Home</a></li>
-                    <li id="productsNav" class="notdropped"><a href="#">Products <i class="fa fa-angle-down" aria-hidden="false"></i></a>
+                    <li><span>Home</span></li>
+                    <li id="productsNav" class="notdropped"><span>Products <i class="fa fa-angle-down" aria-hidden="false"></i></span>
                         <ul class="subnav">
-                            <li>Smartphones</li>
-                            <li>Laptops</li>
-                            <li>Smart TVs</li>
+                            <li><span>Smartphones</span></li>
+                            <li><span>Laptops</span></li>
+                            <li><span>Smart TVs</span></li>
                         </ul>
                     </li>
-                    <li id="reviewsNav" class="notdropped"><a href="#">Reviews <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                    <ul class="subnav">
-                    <li>reviews 1</li>
-                    <li>reviews 2</li>
-                    <li>reviews 3</li>
-                    <li>reviews 4</li>
-                    </ul></li>
-                    <li id="upcomingNav" class="notdropped"><a href="#">Upcoming <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <li id="reviewsNav" class="notdropped"><span href="#">Reviews <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                        <ul class="subnav">
+                            <li><span>Smartphones</span></li>
+                            <li><span>Laptops</span></li>
+                            <li><span>Smart TVs</span></li>
+                        </ul></li>
+                    <li id="upcomingNav" class="notdropped"><span>Upcoming <i class="fa fa-angle-down" aria-hidden="true"></i></span>
                     <ul class="subnav">
                         <li><h3>Cyberpunk 2077</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa reprehenderit possimus libero.</p>
                             <img src="images/upcoming_1.png" alt=""></li>
                     </ul></li>
-                    <li><a href="#">Tech News</a></li>
+                    <li><span>Tech News</span></li>
                 </ul>
             </nav>
-        </div>
+            <!-- clicknav -->
+            <nav class="hideDomElement">
+                <ul>
+                    <li><span>Home</span></li>
+                    <li id="productsNav" class="notdropped"><span>Products <i class="fa fa-angle-down" aria-hidden="false"></i></span>
+                        <ul class="subnav">
+                            <li><span>Smartphones</span></li>
+                            <li><span>Laptops</span></li>
+                            <li><span>Smart TVs</span></li>
+                        </ul>
+                    </li>
+                    <li id="reviewsNav" class="notdropped"><span href="#">Reviews <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                        <ul class="subnav">
+                            <li><span>Smartphones</span></li>
+                            <li><span>Laptops</span></li>
+                            <li><span>Smart TVs</span></li>
+                        </ul></li>
+                    <li id="upcomingNav" class="notdropped"><span>Upcoming <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                    <ul class="subnav">
+                        <li><h3>Cyberpunk 2077</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa reprehenderit possimus libero.</p>
+                            <img src="images/upcoming_1.png" alt=""></li>
+                    </ul></li>
+                    <li><span>Tech News</span></li>
+                </ul>
+            </nav>
     </header>
     <div class="showcase">
 <!-- SHOWCASE OWL CAROUSEL -->
@@ -72,12 +94,13 @@
 <a class="heroslide" href="#three"><img src="images/3.png" alt=""></a>
     </div>
 </div>
+
 <!-- END SHOW CASE OWL CAROUSEL -->
 <!-- START MONTHLY SECTION -->
 <section data-aos="fade-up"
 data-aos-duration="1000">
     <div class="container">
-        <hr>
+        <hr style="border: 0.5px solid #c52112">
     <h3 class="heading">DEVICE CATEGORIES</h3>
 <div class="gridLayout">
     <div class="gridBox">
@@ -87,7 +110,13 @@ data-aos-duration="1000">
             </div>
         </div>
     </div>
-    <div class="gridBox"></div>
+    <div class="gridBox">
+        <div class="mobile">
+            <div class="op">
+                <h3>Mobile</h3>
+            </div>
+        </div>
+    </div>
     <div class="gridBox"></div>
     <div class="gridBox"></div>
     <div class="gridBox"></div>
@@ -149,6 +178,7 @@ data-aos-duration="1000">
         productNav.addEventListener('click', function(e) {
             // console.log(productNav.children[0].className);
             // console.log(productNav.children[0].children[0].className);
+            e.preventDefault();
             if (productNav.className === 'notdropped') {
                 productNav.className = 'dropdownclick';
                 productNav.children[0].children[0].className="fa fa-angle-up";
@@ -159,6 +189,7 @@ data-aos-duration="1000">
             }
         });
         productNav.addEventListener('mouseleave', function(f){
+            f.preventDefault();
             productNav.className = "notdropped";
             productNav.children[0].children[0].className="fa fa-angle-down";
 
@@ -167,6 +198,7 @@ data-aos-duration="1000">
         reviewsNav.addEventListener('click', function(e) {
             // console.log(productNav.children[0].className);
             // console.log(productNav.children[0].children[0].className);
+            e.preventDefault();
             if (reviewsNav.className === 'notdropped') {
                 reviewsNav.className = 'dropdownclick';
                 reviewsNav.children[0].children[0].className="fa fa-angle-up";
@@ -177,12 +209,14 @@ data-aos-duration="1000">
             }
         });
         reviewsNav.addEventListener('mouseleave', function(f){
+            f.preventDefault();
             reviewsNav.className = "notdropped";
             reviewsNav.children[0].children[0].className="fa fa-angle-down";
 
         });
         // UpcomingNav
         upcomingNav.addEventListener('click', function(e) {
+            e.preventDefault();
             // console.log(productNav.children[0].className);
             // console.log(productNav.children[0].children[0].className);
             if (upcomingNav.className === 'notdropped') {
@@ -195,6 +229,7 @@ data-aos-duration="1000">
             }
         });
         upcomingNav.addEventListener('mouseleave', function(f){
+            f.preventDefault();
             upcomingNav.className = "notdropped";
             upcomingNav.children[0].children[0].className="fa fa-angle-down";
 
@@ -204,6 +239,54 @@ data-aos-duration="1000">
     <script>
         AOS.init();
         
+      </script>
+
+      <script>
+          const header = document.querySelector('header');
+          const nav = document.querySelector('.activeNav');
+          const logo = document.querySelector('.logo');
+          const main = document.querySelector('.main');
+          const hideDom = document.querySelector('.hideDomElement');
+          const hamburger = document.querySelector('.shownav');
+          window.addEventListener('scroll', function() {
+              if (window.scrollY>150) {
+                  nav.style.height="0px";
+                  nav.style.opacity="0";
+                  nav.style.transition="all 0.2s ease-in-out";
+                  hamburger.style.transform="scale(1)";
+                  logo.style.width="150px";
+                  header.style.transition="all 0.2s ease-in-out";
+                //   header.style.overflow="hidden";
+              }
+              else if (window.scrollY<150) {
+                // nav.style.height="60px";
+                //   nav.style.opacity="1";
+                //   nav.style.transition="all 0.2s ease-in-out";
+                //   hamburger.style.transform="scale(0)";
+                //   logo.style.width="200px";
+                //   header.style.transition="all 0.2s ease-in-out";
+                //   header.style.overflow="visible";
+                showNav();
+              }
+          });
+          //Hamburger menu display
+          hamburger.addEventListener('click', function() {
+            showNav2();
+          });
+
+          function showNav () {
+            nav.style.height="60px";
+                  nav.style.opacity="1";
+                  nav.style.transition="all 0.2s ease-in-out";
+                  hamburger.style.transform="scale(0)";
+                  logo.style.width="200px";
+                  header.style.transition="all 0.2s ease-in-out";
+                  header.style.overflow="visible";
+                  hideDom.className="hideDomElement";
+          }
+          function showNav2 () {
+            hideDom.className="clickNav";
+          }
       </script>
 <!-- END JAVSCRIPT -->
 </body>

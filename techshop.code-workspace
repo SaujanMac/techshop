@@ -1,24 +1,7 @@
 {
-	"folders": [
-		{
-			"name": "TechShop",
-			"path": "."
-		},
-		{
-			"name": "css-sandbox",
-			"path": "../../Dropbox/css-sandbox"
-		},
-		{
-			"path": "../Hangman/Hangman"
-		},
-		{
-			"path": "../../Dropbox/JS-Course"
-		},
-		{
-			"path": "../../Dropbox/GTAWiki"
-		}
-	],
-	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "TechShop"
-	}
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
 }
